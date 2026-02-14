@@ -8,7 +8,7 @@ def collapse_names(lst):
 
 
 
-def transform_movie_data(data:pd.DataFrame) -> pd.DataFrame:
+def preprocess_movie_data(data:pd.DataFrame) -> pd.DataFrame:
     """
     Transforms the movie data by creating a new 'tags' column that combines relevant information.
 

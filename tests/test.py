@@ -2,7 +2,9 @@ from movie_recommender.data.fetch_data import fetch_movie_data
 from movie_recommender.logger import logger
 from movie_recommender.exceptions import CustomException
 from movie_recommender.data.data_cleaning import Cleaning
-from movie_recommender.data.data_preprocessing import transform_movie_data
+from movie_recommender.data.data_preprocessing import preprocess_movie_data
+from movie_recommender.data.data_transformation import DataTransformation
+
 if __name__ == "__main__":
     # Test fetching movie data
     try:
@@ -21,11 +23,21 @@ if __name__ == "__main__":
         cleaned_data = cleaning.full_cleaning()
         logger.info("Data cleaning completed successfully.")
 
-        preprocessed_data = transform_movie_data(cleaned_data)
+        # data preprocessing
+        preprocessed_data = preprocess_movie_data(cleaned_data)
         logger.info("Data preprocessing completed successfully.")
-        
+
+        # Prepare preprocessed data for transformation
+        preprocessed_data['text'] = preprocessed_data['tags'].apply(lambda x: " ".join(x))
+        dtf = DataTransformation(preprocessed_data)
+        similarity = dtf.full_transformation()
+        print(similarity)
+
 
 
 
     except Exception as e:
         print(f"Error fetching movie data: {e}")
+
+    except ModuleNotFoundError as m:
+        print(f"module not found: {m}")
