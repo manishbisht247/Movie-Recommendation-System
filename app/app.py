@@ -35,7 +35,7 @@ recommended = recommend(movie)
 
 
 if st.button('Recommend'):
-    st.write()
+    st.write(recommended)
 
 
 if __name__ == "__main__":
