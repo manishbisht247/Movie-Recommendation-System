@@ -8,7 +8,11 @@ from movie_recommender.utils.poster import fetch_poster
 import sys
 import os
 
-sys.path.append(os.path.abspath("src"))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC_PATH = os.path.join(BASE_DIR, "src")
+
+sys.path.append(SRC_PATH)
+
 
 
 movies_df = pd.read_csv(r"C:\Users\mbvin\OneDrive\Desktop\Movie-Recommendation-System\data\preprocessed\final_data.csv")
