@@ -1,8 +1,8 @@
-streamlit==1.37.1
-numpy>=2.0.0
-scipy>=1.13.0
-scikit-learn>=1.4.0
-pandas>=2.2.0
+streamlit
+numpy
+scipy
+scikit-learn
+pandas
 nltk
 requests
-altair>=5.0.0
+pythondotenv
