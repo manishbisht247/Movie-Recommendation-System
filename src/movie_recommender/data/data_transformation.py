@@ -16,12 +16,12 @@ class DataTransformation:
     def convert_to_string(self):
         # Convert the 'text' column to string type for all rows
         self.data['text'] = self.data['text'].astype(str)
-        return self.data['text']
+        return self.data
 
     def remove_punctuation(self):
         # Remove punctuation from the 'text' column for all rows
         self.data['text'] = self.data['text'].apply(lambda x: re.sub(r"[^a-zA-Z\s]", " ", x))
-        return self.data['text']
+        return self.data
     
     def clean_and_lemmatize(self):
         lemmatizer = WordNetLemmatizer()
@@ -34,20 +34,7 @@ class DataTransformation:
                 if w not in stop_words and w not in custom_stop_words
             )
         self.data['text'] = self.data['text'].apply(process)
-        return self.data['text']
-    def vectorize_text(self):
-        cv = CountVectorizer(
-            max_features=5000,
-            stop_words='english',
-            ngram_range=(1, 2)
-        )
-        # Fit and transform the entire 'text' column
-        vectors = cv.fit_transform(self.data['text'])
-        return vectors
-
-    def similarity_score(self, vectorized_text):
-        # Compute cosine similarity matrix for all rows
-        return cosine_similarity(vectorized_text)
+        return self.data
     
     def full_transformation(self):
         # Apply all transformations in sequence to self.data['text']
@@ -57,8 +44,6 @@ class DataTransformation:
         logger.info('removed punctuation')
         self.clean_and_lemmatize()
         logger.info('lemmatization done')
-        vectors = self.vectorize_text()
-        logger.info('made vector')
-        similarity = self.similarity_score(vectors)
-        logger.info('computed similarity')
-        return similarity
+        return self.data
+    
+    

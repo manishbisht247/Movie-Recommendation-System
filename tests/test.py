@@ -1,9 +1,11 @@
-from movie_recommender.data.fetch_data import fetch_movie_data
 from movie_recommender.logger import logger
 from movie_recommender.exceptions import CustomException
+from movie_recommender.data.fetch_data import fetch_movie_data
 from movie_recommender.data.data_cleaning import Cleaning
 from movie_recommender.data.data_preprocessing import preprocess_movie_data
 from movie_recommender.data.data_transformation import DataTransformation
+
+
 
 if __name__ == "__main__":
     # Test fetching movie data
@@ -30,8 +32,16 @@ if __name__ == "__main__":
         # Prepare preprocessed data for transformation
         preprocessed_data['text'] = preprocessed_data['tags'].apply(lambda x: " ".join(x))
         dtf = DataTransformation(preprocessed_data)
-        similarity = dtf.full_transformation()
-        print(similarity)
+        final_data = dtf.full_transformation()
+        logger.info("Data transformation completed successfully.")
+
+    
+        # export to data folder
+        final_data.to_csv(r"C:\Users\mbvin\OneDrive\Desktop\Movie-Recommendation-System\data\preprocessed\final_data.csv", index=False)
+        logger.info("Final data exported successfully.")
+        
+
+        
 
 
 
