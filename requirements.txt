@@ -3,6 +3,5 @@ pandas
 scikit-learn
 requests
 streamlit
-python-dotenv
 scipy
 nltk
