@@ -1,9 +1,9 @@
 from movie_recommender.logger import logger
 from movie_recommender.exceptions import CustomException
-from movie_recommender.data.fetch_data import fetch_movie_data
-from movie_recommender.data.data_cleaning import Cleaning
-from movie_recommender.data.data_preprocessing import preprocess_movie_data
-from movie_recommender.data.data_transformation import DataTransformation
+from movie_recommender.data_ingestion.fetch_data import fetch_movie_data
+from movie_recommender.data_ingestion.data_cleaning import Cleaning
+from movie_recommender.data_ingestion.data_preprocessing import preprocess_movie_data
+from movie_recommender.data_ingestion.data_transformation import DataTransformation
 
 
 
@@ -39,7 +39,7 @@ if __name__ == "__main__":
         # export to data folder
         final_data.to_csv(r"C:\Users\mbvin\OneDrive\Desktop\Movie-Recommendation-System\data\preprocessed\final_data.csv", index=False)
         logger.info("Final data exported successfully.")
-        
+
 
         
 
