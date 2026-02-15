@@ -5,6 +5,10 @@ import pandas as pd
 import streamlit as st
 from movie_recommender.models.model import MovieRecommender
 from movie_recommender.utils.poster import fetch_poster
+import sys
+import os
+
+sys.path.append(os.path.abspath("src"))
 
 
 movies_df = pd.read_csv(r"C:\Users\mbvin\OneDrive\Desktop\Movie-Recommendation-System\data\preprocessed\final_data.csv")
