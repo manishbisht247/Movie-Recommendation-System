@@ -5,3 +5,4 @@ requests
 streamlit
 scipy
 nltk
+altair==4.2.2
