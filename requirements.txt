@@ -6,4 +6,3 @@ pandas
 nltk
 requests
 python-dotenv
--e .

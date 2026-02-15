@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+sys.path.append(str(ROOT / "src"))
 from numpy import test
 import streamlit as st
 import pandas as pd
