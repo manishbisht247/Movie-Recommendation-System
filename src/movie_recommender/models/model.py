@@ -28,7 +28,7 @@ class MovieRecommender:
         # Normalize vectors for cosine similarity
         self.vectors = normalize(self.vectors)
 
-    def recommend(self, movie_title, top_n=6):
+    def recommend(self, movie_title, top_n=5):
         """
         Returns top_n similar movies based on title
         """
@@ -50,4 +50,5 @@ class MovieRecommender:
         top_indices = sorted_indices[1:top_n + 1]
 
         # Return only movie titles
-        return self.movies.iloc[top_indices][["title"]]
+        return self.movies.iloc[top_indices][["title", "movie_id"]]
+
