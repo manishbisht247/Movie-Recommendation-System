@@ -8,7 +8,7 @@ from movie_recommender.models.model import MovieRecommender
 from movie_recommender.utils.poster import fetch_poster
 
 
-movies_df = pd.read_csv(r"C:\Users\mbvin\OneDrive\Desktop\Movie-Recommendation-System\data\preprocessed\final_data.csv")
+movies_df = pd.read_csv("data/preprocessed/final_data.csv")
 
 
 st.title("Movie Recommender")
