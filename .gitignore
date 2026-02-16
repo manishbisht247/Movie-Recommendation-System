@@ -212,8 +212,6 @@ __marimo__/
 
 # Project-specific
 logs/
-data/raw/
-data/processed/
 .streamlit/
 
 # Safety
