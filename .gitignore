@@ -216,7 +216,6 @@ logs/
 
 # Safety
 .pytest_cache/
-*.csv
 *.json
 
 *.pkl
